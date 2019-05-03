@@ -2,22 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-// Компонент Square
-class Square extends React.Component {
-    // Метод render компонента Square
-    render() {
-      return (
-        <button
-            className="square"
-            /*При клике на компонент обращаемся к props этого компонента, в котором лежит property с именем onClick,
-                которое передал сюда компонент Board и в котором хранится объект handleClick(i)*/
-            onClick={() => {this.props.onClick()} }
-        >
-          {this.props.value}
+function Square(props) {
+    return(
+        <button className="square" onClick={props.onClick}>
+            {props.value}
         </button>
-      );
-    }
-  }
+    );
+}
 // Метод Board.render создает:
 // div.обертку
 //          --див.статус
@@ -40,7 +31,11 @@ class Square extends React.Component {
           onClick={() => this.handleClick(i)}
       />;
     }
-  
+    handleClick(i) {
+        const squares = this.state.squares.slice();
+        squares[i] = 'X';
+        this.setState({squares : squares});
+    }
     render() {
       const status = 'Next player: X';
   
