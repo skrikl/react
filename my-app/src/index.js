@@ -9,8 +9,8 @@ class Square extends React.Component {
       return (
         <button
             className="square"
-            {/*При клике на компонент обращаемся к props этого компонента, в котором лежит property с именем onClick,
-                которое передал сюда компонент Board и в котором хранится объект handleClick(i)*/}
+            /*При клике на компонент обращаемся к props этого компонента, в котором лежит property с именем onClick,
+                которое передал сюда компонент Board и в котором хранится объект handleClick(i)*/
             onClick={() => {this.props.onClick()} }
         >
           {this.props.value}
